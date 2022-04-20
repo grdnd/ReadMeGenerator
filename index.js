@@ -2,24 +2,24 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util')
-const writeToFile = util.promisify(fs.writeFile)
+const writeFileAsync = util.promisify(fs.writeFile)
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// Function prompts user using inquirer.prompt to Readme.md Content
+// Function prompts user using inquirer.prompt to populate Readme.md Content
 // Generate questions for: Project Title, Description, Usage, Installation, Contributing, Tests, Questions, License
 // Table of Contents generated in generateMarkdown file)
 function userPrompt(){
     return inquirer.prompt ([
     // Prompt user for project title
         {
-            name: "projectTitle",
+            name: "Title",
             message: "What is the name of your project?: ",
             type: "input",
         },
         // Prompt user for short project description
         {
             name: "description",
-            message: "Briefly describe your project: ",
+            message: "Provide a brief summary of your project: ",
             type: "input",
         },
         // Pompt user for usage instructions
@@ -34,37 +34,53 @@ function userPrompt(){
             message: "If required, provide installation instructions for your project: ",
             type: "input",
         },
-        // Prompt user for project contributors
+        // Prompt user for GitHub username to display in credits section
         {
-            name: "contributing",
-            message: "Display contribution guidelines here: ",
+            name: "developer",
+            message: "For the credits section, please enter your GitHub username: ",
             type: "input",
         },
+        // Prompt user for GitHub usernames to display in credits section
+        {
+            name: "collaborators",
+            message: "For the credits section, please list GitHub usernames of the collaborator(s) for this project, if any: ",
+            type: "input",
+        },
+        // Prompt user for project contributors
+        {
+            name: "contributions",
+            message: "Please enter a link to your project repository and instructions for contributions: ",
+            type: "input",
+        },
+        // Prompt user for project tests
         {
             name: "test",
             message: "Provide test information or procedures for your project: ",
             type: "input",
         },
+        // Prompt user for email address for inquiries
         {
-            name: "questions",
-            message: "Please provide GitHub profile for questions section: ",
+            name: "email",
+            message: "Please provide your email for inquiries: ",
             type: "input",
         },
-    ]);
-}
+        // Prompt user for github profile link for inquiries
+        {
+            name: "profile",
+            message: "Finally, provide your github profile link for inquiries: ",
+            type: "input",
+        },
+        // Prompt user for Licesense
+        {
+            name: "license",
+            message: 'Which license are you using for your project?',
+            type: 'list',
+            choices: ['MIT', 'APACHE 2.0', 'BSD 3', 'GPL 3.0', 'None'],
+        },
+    ])
+};
 
-// Function writes README.md file using fs module
-// function writeToFile(fileName, data) {
-//     fs.writeFile(fileName, data, err => {
-//         if(err) {
-//             return console.log(err)
-//         }
-//         console.log("README.md has been created")
-//     });
-// }
-
-// TODO: Create a function to initialize app
-// Combined function using util.promisify(fs.writeFile) initializes app then creates Readme
+// Combined function using util.promisify(fs.writeFile) writes the README.md file based on user's input
 async function init() {
     try {
         // function initializes after user answers prompt
@@ -72,8 +88,8 @@ async function init() {
         // generate readme using markdown after user inputs
         const generateReadme = generateMarkdown(userInput);
         // Create Readme.md file in newReadme
-        await writeToFile('./newReadMe/Readme.md', generateReadme);
-        console.log('Your README.md has been created');
+        await writeFileAsync('./Public/Readme.md', generateReadme);
+        console.log('✔️ Your README.md has been created');
     } catch (err) {
         console.log(err)
     }
