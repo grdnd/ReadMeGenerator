@@ -1,20 +1,70 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+// Function to generate markdown based on userInput
+function generateMarkdown(userInput) {
+  // Readme structure designed here
+  return `# ${userInput.Title}
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
+  <img src='https://img.shields.io/badge/License-${userInput.license}-blue.svg'>
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
+  ## Description
+  ${userInput.description}
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+
+  ## Table of Contents
+  1. [Description](#description)
+  2. [Project Usability](#usage)
+  3. [Installation Guidelines](#installation)
+  4. [Credits](#credits)
+  5. [Contributions](#contributions)
+  6. [Tests](#tests)
+  7. [Developer Questions](#questions)
+
+
+
+  ## Usage
+  ${userInput.usage}
+
+
+  ## Installation
+  ${userInput.installation}
+
+
+  ## Credits
+  Developer: ${userInput.developer}
+  <br>
+  <br>
+  Collaborators: ${userInput.collaborators}
+
+
+  ### Contributions
+  If you would like to make a contribution, you may access this github repository at: ${userInput.contributions}
+
+
+  ### Tests
+  ${userInput.test}
+
+
+  ### Inquiries
+  If you have any questions, please feel free to contact me:
+  <br>
+  <br>
+  :octocat:: ${userInput.profile}
+  <br>
+  <br>
+  :envelope:: ${userInput.email}
+
+
+  ### License
+
+  © Gordon Do, UCI Continuing Education: Full Stack Web Development
+
+  Licensed under the ${userInput.license} license.
 
 `;
 }
 
+
 module.exports = generateMarkdown;
+
+
+// External Links:
+// https://stackoverflow.com/questions/11948245/markdown-to-create-pages-and-table-of-contents
