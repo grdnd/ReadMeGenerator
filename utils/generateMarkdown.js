@@ -52,13 +52,6 @@ function generateMarkdown(userInput) {
   <br>
   :envelope:: ${userInput.email}
 
-
-  ### License
-
-  © Gordon Do, UCI Continuing Education: Full Stack Web Development
-
-  Licensed under the ${userInput.license} license.
-
 `;
 }
 
