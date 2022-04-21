@@ -22,22 +22,22 @@ function userPrompt(){
             message: "Provide a brief summary of your project: ",
             type: "input",
         },
-        // Pompt user for usage instructions
-        {
-            name: "usage",
-            message: "Enter your project usage information: ",
-            type: "input",
-        },
         // Prompt user for installation instructions
         {
             name: "installation",
             message: "If required, provide installation instructions for your project: ",
             type: "input",
         },
+        // Pompt user for usage instructions
+        {
+            name: "usage",
+            message: "Enter your project usage information: ",
+            type: "input",
+        },
         // Prompt user for GitHub username to display in credits section
         {
             name: "developer",
-            message: "For the credits section, please enter your GitHub username: ",
+            message: "For the credits section, please enter only your GitHub username: ",
             type: "input",
         },
         // Prompt user for GitHub usernames to display in credits section
@@ -49,7 +49,7 @@ function userPrompt(){
         // Prompt user for project contributors
         {
             name: "contributions",
-            message: "Please enter a link to your project repository and instructions for contributions: ",
+            message: "Please enter a link to your project repository for contributions: ",
             type: "input",
         },
         // Prompt user for project tests
@@ -67,7 +67,7 @@ function userPrompt(){
         // Prompt user for github profile link for inquiries
         {
             name: "profile",
-            message: "Finally, provide your github profile link for inquiries: ",
+            message: "Please provide your github profile link for inquiries: ",
             type: "input",
         },
         // Prompt user for Licesense
@@ -77,6 +77,18 @@ function userPrompt(){
             type: 'list',
             choices: ['MIT', 'APACHE 2.0', 'BSD 3', 'GPL 3.0', 'None'],
         },
+        // Prompt user for name
+        {
+            name: "name",
+            message: "Please enter your name for the copyright section: ",
+            type: "input",
+        },
+        // Prompt user for credentials
+        {
+            name: "credentials",
+            message: "Please enter your credentials or organization for copyright section: ",
+            type: "input",
+        }
     ])
 };
 
