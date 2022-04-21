@@ -1,60 +1,73 @@
 // Function to generate markdown based on userInput
 function generateMarkdown(userInput) {
   // Readme structure designed here
-  return `# ${userInput.Title}
+  return `
+  # ${userInput.Title}
 
   <img src='https://img.shields.io/badge/License-${userInput.license}-blue.svg'>
 
   ## Description
+  
   ${userInput.description}
 
 
   ## Table of Contents
+
   1. [Description](#description)
-  2. [Project Usability](#usage)
-  3. [Installation Guidelines](#installation)
+  2. [Installation Guidelines](#installation)
+  3. [Project Usability](#usage)
   4. [Credits](#credits)
   5. [Contributions](#contributions)
   6. [Tests](#tests)
-  7. [Developer Questions](#questions)
-
-
-
-  ## Usage
-  ${userInput.usage}
+  7. [Inquiries](#inquiries)
+  8. [License](#license)
 
 
   ## Installation
+
   ${userInput.installation}
+  
+  
+  ## Usage
+
+  ${userInput.usage}
 
 
   ## Credits
-  Developer: ${userInput.developer}
-  <br>
-  <br>
+
+  Developer: [${userInput.developer}](https://github.com/${userInput.developer})
+  
   Collaborators: ${userInput.collaborators}
 
 
   ### Contributions
-  If you would like to make a contribution, you may access this github repository at: ${userInput.contributions}
+
+  If you would like to make a contribution, you may access this github repository [here!](${userInput.contributions})
 
 
   ### Tests
+
   ${userInput.test}
 
 
   ### Inquiries
+
   If you have any questions, please feel free to contact me:
-  <br>
-  <br>
-  :octocat:: ${userInput.profile}
-  <br>
-  <br>
+  
+  :octocat:: [${userInput.profile}](${userInput.profile})
+  
   :envelope:: ${userInput.email}
+
+
+  ### License
+
+  © ${userInput.name}, ${userInput.credentials}
+
+  Licensed under the ${userInput.license} license.
+
 
 `;
 }
-
 
 module.exports = generateMarkdown;
 
