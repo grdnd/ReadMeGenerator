@@ -15,7 +15,7 @@ function generateMarkdown(userInput) {
 
   1. [Description](#description)
   2. [Installation Guidelines](#installation)
-  3. [Project Usability](#usage)
+  3. [Project Usage](#usage)
   4. [Credits](#credits)
   5. [Contributions](#contributions)
   6. [Tests](#tests)
